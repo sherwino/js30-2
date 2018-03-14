@@ -1,0 +1,57 @@
+html {
+    background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+    background-size:cover;
+    font-family:'helvetica neue';
+    text-align: center;
+    font-size: 10px;
+  }
+
+  body {
+    margin: 0;
+    font-size: 2rem;
+    display:flex;
+    flex:1;
+    min-height: 100vh;
+    align-items: center;
+  }
+
+  .clock {
+    width: 30rem;
+    height: 30rem;
+    border:20px solid white;
+    border-radius:50%;
+    margin:50px auto;
+    position: relative;
+    padding:2rem;
+    box-shadow:
+      0 0 0 4px rgba(0,0,0,0.1),
+      inset 0 0 0 3px #EFEFEF,
+      inset 0 0 10px black,
+      0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /* account for the height of the clock hands */
+  }
+
+  .hand {
+    width:50%;
+    height:6px;
+    background:black;
+    position: absolute;
+    top:50%;
+    /* This is very interesting...it lets you change the centerpoint/origin
+    so that you could rotate it / move it based off of that new point */
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    /* Make the hand move every 0.05 with a transition of my choice */
+    transition: all 0.05s;
+    /* Here is another cool one that I have never used...GO CSS ANIMATIONS
+    this lets me decide how to time the transitions, in this case
+    the timing is a cubic becier curve, the curve can be selected using
+    modern browser tools in chrome and firefox */
+    transition-timing-function: cubic-bezier(.2,2.7,0,.93);
+  }
